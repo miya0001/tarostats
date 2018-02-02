@@ -4,6 +4,7 @@
   "description": "Google App Engine provides a Cron service. Using this service for scheduling and Google Cloud Pub/Sub for distributed messaging, you can build an application to reliably schedule tasks which can trigger Google Cloud Functions.",
   "main": "index.js",
   "scripts": {
+    "setup": "cd appengine && pip install -t lib -r requirements.txt && cd ../functions && npm install",
     "log": "firebase functions:log --project tarostats",
     "deploy": "yes | gcloud app deploy appengine/app.yaml appengine/cron.yaml && firebase deploy --only functions --project tarostats",
     "test": "echo \"Error: no test specified\" && exit 1"
