@@ -16,8 +16,8 @@ const functions = require( 'firebase-functions' )
 const getStats = require( './lib/getstats' )
 
 exports.checkstats = functions.pubsub.topic( 'checkstats' ).onPublish( ( event ) => {
-    console.log( event )
-    console.log( "It is working!" )
-    const st = new getStats( 'aaaaaaaaaaaaaaaaaa' );
-    st.req()
+    const st = new getStats( 'https://miya.io/' );
+    st.req( ( res ) => {
+      console.log( res )
+    } )
 } );
