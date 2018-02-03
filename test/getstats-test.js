@@ -13,6 +13,8 @@ const runserver = function( responseCode ) {
   } ).listen( 8080 )
 }
 
+const mockserver = 'http://127.0.0.1:8080';
+
 describe('Get the http status', () => {
 
   it( 'Send http request to the website', ( done ) => {
@@ -40,7 +42,7 @@ describe('Get the http status', () => {
   it( 'It should get 200 to connect when mock server is running', ( done ) => {
     const server = runserver( 200 );
     const getStats = require( '../functions/lib/getstats' );
-    const st = new getStats( 'http://127.0.0.1:8080' );
+    const st = new getStats( mockserver );
     st.req( ( result ) => {
       expect( result.time > 0 ).to.equal( true );
       expect( result.error ).to.equal( null );
@@ -52,7 +54,7 @@ describe('Get the http status', () => {
   it( 'It should get 500 to connect when mock server is running', ( done ) => {
     const server = runserver( 500 );
     const getStats = require( '../functions/lib/getstats' );
-    const st = new getStats( 'http://127.0.0.1:8080' );
+    const st = new getStats( mockserver );
     st.req( ( result ) => {
       expect( result.time > 0 ).to.equal( true );
       expect( result.error ).to.equal( null );
@@ -63,7 +65,7 @@ describe('Get the http status', () => {
 
   it( 'It should get error to connect', ( done ) => {
     const getStats = require( '../functions/lib/getstats' );
-    const st = new getStats( 'http://127.0.0.1:8080' );
+    const st = new getStats( mockserver );
     st.req( ( result ) => {
       expect( result.time > 0 ).to.equal( true );
       expect( result.error.errno ).to.equal( 'ECONNREFUSED' );
