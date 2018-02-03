@@ -7,7 +7,7 @@
     "setup": "cd appengine && pip install -t lib -r requirements.txt && cd ../functions && npm install",
     "log": "firebase functions:log --project tarostats",
     "deploy": "yes | gcloud app deploy appengine/app.yaml appengine/cron.yaml && firebase deploy --only functions --project tarostats",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/ --timeout 15000"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/firebase/functions-cron/issues"
   },
-  "homepage": "https://github.com/firebase/functions-cron#readme"
+  "homepage": "https://github.com/firebase/functions-cron#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "http-server": "^0.11.1",
+    "mocha": "^5.0.0",
+    "sinon": "^4.2.2"
+  }
 }
