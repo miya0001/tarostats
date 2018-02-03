@@ -39,7 +39,7 @@ describe('Get the http status', () => {
     } )
   } );
 
-  it( 'It should get 200 to connect when mock server is running', ( done ) => {
+  it( 'It should get status 200', ( done ) => {
     const server = runserver( 200 );
     const getStats = require( '../functions/lib/getstats' );
     const st = new getStats( mockserver );
@@ -51,7 +51,7 @@ describe('Get the http status', () => {
     } )
   } );
 
-  it( 'It should get 500 to connect when mock server is running', ( done ) => {
+  it( 'It should get status 500', ( done ) => {
     const server = runserver( 500 );
     const getStats = require( '../functions/lib/getstats' );
     const st = new getStats( mockserver );
