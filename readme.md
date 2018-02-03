@@ -1,4 +1,6 @@
-# [WIP] TaroStats
+# TaroStats
+
+[![Build Status](https://travis-ci.org/miya0001/tarostats.svg?branch=master)](https://travis-ci.org/miya0001/tarostats)
 
 Website health monitor with the Google Appengine + Cloud Functions
 
