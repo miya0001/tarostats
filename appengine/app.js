@@ -11,8 +11,7 @@ app.get( '/', (req, res) => {
 } );
 
 app.get( '/publish/checkstats', ( req, res ) => {
-  console.log( req )
-  if ( 'true' === req.headers['x-appengine-cron'] || '127.0.0.1:8080' === req.headers.host
+  if ( 'true' === req.headers['x-appengine-cron'] || 8080 === process.env.PORT
 
  ) {
     const pub = new publisher( 'tarostats', 'checkstats' );
@@ -26,7 +25,7 @@ app.get( '/publish/checkstats', ( req, res ) => {
 } );
 
 // Start the server
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 app.listen( PORT, () => {
   console.log( `App listening on port ${PORT}` );
   console.log( 'Press Ctrl+C to quit.' );
