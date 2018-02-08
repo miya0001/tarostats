@@ -6,7 +6,7 @@ const publisher = require( './lib/publisher' );
 
 const app = express();
 
-app.get( '/', (req, res) => {
+app.get( '/', ( req, res ) => {
   res.status( 200 ).send( 'OK' ).end();
 } );
 
