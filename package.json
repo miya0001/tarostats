@@ -6,7 +6,7 @@
   "scripts": {
     "setup": "cd appengine && npm install && cd ../functions && npm install",
     "log": "firebase functions:log --project tarostats",
-    "deploy": "yes | gcloud app deploy --project tarostats && firebase deploy --only functions --project tarostats",
+    "deploy": "cd appengine && yes | gcloud app deploy --project tarostats && cd .. && firebase deploy --only functions --project tarostats",
     "test": "mocha test/ --timeout 15000"
   },
   "repository": {
