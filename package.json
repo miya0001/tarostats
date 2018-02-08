@@ -21,7 +21,7 @@
   "homepage": "https://github.com/firebase/functions-cron#readme",
   "devDependencies": {
     "chai": "^4.1.2",
-    "http-server": "^0.11.1",
+    "firebase": "^4.9.1",
     "mocha": "^5.0.0",
     "sinon": "^4.2.2"
   }
