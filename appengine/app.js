@@ -10,9 +10,11 @@ app.get( '/', (req, res) => {
   res.status( 200 ).send( 'OK' ).end();
 } );
 
-app.get( '/publish/checkstats', (req, res) => {
-  if ( 'true' === req.headers['x-appengine-cron'] ) {
-    console.log( 'Cron is working!' );
+app.get( '/publish/checkstats', ( req, res ) => {
+  console.log( req )
+  if ( 'true' === req.headers['x-appengine-cron'] || '127.0.0.1:8080' === req.headers.host
+
+ ) {
     const pub = new publisher( 'tarostats', 'checkstats' );
     pub.send( 'Publish from cron on GAE.', function( results ) {
       console.log( results )
